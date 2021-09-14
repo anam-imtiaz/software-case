@@ -39,12 +39,10 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single Tutorial with an id
-exports.findOne = (req, res) => {
-  
-};
 
-// Update a Tutorial by the id in the request
+
+
+
 exports.update = (req, res) => {
   const id = req.params.id;
  	 todo.findOne({_id:id})
@@ -88,7 +86,7 @@ exports.update = (req, res) => {
     });
 
  
-
+}
 exports.delete = (req, res) => {
   const id = req.params.id;
  	

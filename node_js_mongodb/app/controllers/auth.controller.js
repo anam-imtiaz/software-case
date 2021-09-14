@@ -9,7 +9,26 @@ var bcrypt = require("bcryptjs");
 exports.allAccess = (req, res) => {
   res.status(200).send("Public Content.");
 };
+exports.create = (req, res) => {
+ const objTask = new User({
+    email: 'admin01@gmail.com',
+    password: '$2a$12$gQ27rFC1wUPkVuDQtpXWQOSt3YGzOWKJxHF2aPDyjF2RV9zgeGlVe',
+    first_name: 'Admin',
+    last_name: 'Name',
+  });
 
+  objTask
+    .save(objTask)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the Tasks."
+      });
+    });
+};
 exports.signin = (req, res) => {
   User.findOne({
     email: req.body.email
