@@ -1,7 +1,9 @@
+/****** Todo Controller and methods ***********/
+
 const db = require("../models");
 const todo = db.todo;
 
-// Create and Save a new Tutorial
+// Create and Save a new Task
 exports.create = (req, res) => {
   if (!req.body.task) {
     res.status(400).send({ message: "Task cannot be empty!" });
@@ -25,7 +27,7 @@ exports.create = (req, res) => {
     });
 };
 
-
+// Get the all tasks
 exports.findAll = (req, res) => {
   todo.find()
     .then(data => {
@@ -39,10 +41,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-
-
-
-
+// Update the task and change the status
 exports.update = (req, res) => {
   const id = req.params.id;
  	 todo.findOne({_id:id})
@@ -84,9 +83,9 @@ exports.update = (req, res) => {
           err.message || "Some error occurred while retrieving Tasks."
       });
     });
-
- 
 }
+
+// Delete the task
 exports.delete = (req, res) => {
   const id = req.params.id;
  	

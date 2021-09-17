@@ -6,30 +6,26 @@ const app = express();
 
 const corsOpts = {
   origin: '*',
-
   methods: [
     'GET',
     'POST',
   ],
-
   allowedHeaders: [
     'Content-Type',
   ],
 };
 
-
-
-db.mongoose
-  .connect(db.url, {
-    useNewUrlParser: true
-  })
-  .then(() => {
-    console.log("database Connection success!");
-  })
-  .catch(err => {
-    console.log("database Connection failed!", err);
-    process.exit();
-  });
+  db.mongoose
+    .connect(db.url, {
+      useNewUrlParser: true
+    })
+    .then(() => {
+      console.log("database Connection success!");
+    })
+    .catch(err => {
+      console.log("database Connection failed!", err);
+      process.exit();
+    });
 
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');

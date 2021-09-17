@@ -10,6 +10,7 @@ module.exports = function(app) {
     );
     next();
   });
+  
   app.post("/api/auth/signin", controller.signin);
     app.post("/api/user/create", controller.create);
    app.get("/api/test/all", controller.allAccess);

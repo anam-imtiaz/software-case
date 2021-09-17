@@ -14,5 +14,5 @@ module.exports = mongoose => {
   });
 
     const Todo = mongoose.model("todo", schema);
-  return Todo;
+    return Todo;
 };

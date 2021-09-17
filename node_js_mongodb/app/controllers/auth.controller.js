@@ -1,3 +1,4 @@
+/****** Auth Controller and methods ***********/
 const config = require("../../config/auth");
 const db = require("../models");
 const User = db.user;
@@ -9,6 +10,8 @@ var bcrypt = require("bcryptjs");
 exports.allAccess = (req, res) => {
   res.status(200).send("Public Content.");
 };
+
+// User Create Method
 exports.create = (req, res) => {
  const objTask = new User({
     email: 'admin01@gmail.com',
@@ -29,6 +32,9 @@ exports.create = (req, res) => {
       });
     });
 };
+
+
+// User Signin  Method
 exports.signin = (req, res) => {
   User.findOne({
     email: req.body.email
@@ -56,8 +62,6 @@ exports.signin = (req, res) => {
       var token = jwt.sign({ id: user.id }, config.secret, {
         expiresIn: 86400 // 24 hours
       });
-
-     
       res.status(200).send({
         id: user._id,
         email: user.email,

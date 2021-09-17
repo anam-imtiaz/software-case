@@ -1,5 +1,5 @@
 const controller = require("../app/controllers/todo.controller");
-
+// Routes for the Tasks
 module.exports = function(app) {
 
  app.use(function(req, res, next) {
@@ -9,10 +9,10 @@ module.exports = function(app) {
     );
     next();
   });
-    app.post("/api/todo", controller.create);
-    app.get("/api/todo/all", controller.findAll);
-    app.post("/api/todo/delete/:id", controller.delete);
-    app.post("/api/todo/update/:id", controller.update);
+  app.post("/api/todo", controller.create);
+  app.get("/api/todo/all", controller.findAll);
+  app.post("/api/todo/delete/:id", controller.delete);
+  app.post("/api/todo/update/:id", controller.update);
 
 };
 
